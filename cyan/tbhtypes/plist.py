@@ -12,9 +12,9 @@ class Plist:
         self.data: dict[str, Any] = plistlib.load(f)
 
       self.success = True
-    except Exception:
+    except Exception as e:
       if throw:
-        sys.exit(f"[!] couldn't read {path}")
+        sys.exit(f"[!] couldn't read {path}: {e}")
 
       self.success = False
 
